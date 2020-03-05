@@ -43,11 +43,7 @@ class LocationResult {
 class AddressComponent {
   String name;
   String shortName;
-
-  AddressComponent(
-    this.name,
-    this.shortName,
-  );
+  AddressComponent(this.name, this.shortName,);
 }
 
 /// Nearby place data will be deserialized into this model.
@@ -506,32 +502,12 @@ class PlacePickerState extends State<PlacePicker> {
           this.locationResult.formattedAddress = result['formatted_address'];
           this.locationResult.placeId = result['place_id'];
 
-          this.locationResult.postalCode =
-              result['address_components'][7]['short_name'];
-          this.locationResult.country = AddressComponent(
-            result['address_components'][6]['long_name'],
-            result['address_components'][6]['short_name'],
-          );
-          this.locationResult.administrativeAreaLevel1 = AddressComponent(
-            result['address_components'][5]['long_name'],
-            result['address_components'][5]['short_name'],
-          );
-          this.locationResult.administrativeAreaLevel2 = AddressComponent(
-            result['address_components'][4]['long_name'],
-            result['address_components'][4]['short_name'],
-          );
-          this.locationResult.city = AddressComponent(
-            result['address_components'][3]['long_name'],
-            result['address_components'][3]['short_name'],
-          );
-          this.locationResult.subLocalityLevel1 = AddressComponent(
-            result['address_components'][2]['long_name'],
-            result['address_components'][2]['short_name'],
-          );
-          this.locationResult.subLocalityLevel2 = AddressComponent(
-            result['address_components'][1]['long_name'],
-            result['address_components'][1]['short_name'],
-          );
+          this.locationResult.postalCode = result['address_components'][7]['short_name'];
+          this.locationResult.country = AddressComponent(result['address_components'][6]['long_name'], result['address_components'][6]['short_name'],);
+          this.locationResult.administrativeAreaLevel1 = AddressComponent(result['address_components'][5]['long_name'], result['address_components'][5]['short_name'],);
+          this.locationResult.administrativeAreaLevel2 = AddressComponent(result['address_components'][4]['long_name'], result['address_components'][4]['short_name'],);
+          this.locationResult.city = AddressComponent(result['address_components'][3]['long_name'], result['address_components'][3]['short_name'],);
+          this.locationResult.subLocalityLevel1 = AddressComponent(result['address_components'][2]['long_name'], result['address_components'][2]['short_name'],);
         });
       }
     }).catchError((error) {
